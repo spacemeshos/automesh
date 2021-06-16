@@ -26,3 +26,5 @@ database/data
 *.pyc
 /devtools
 .python-version
+.ropeproject
+tags
