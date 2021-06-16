@@ -5,7 +5,7 @@ import os
 import time
 import yaml
 
-import tests.utils as ut
+import automesh.utils as ut
 
 """ k8s deployment api file for stateless deployments (opposite to statefulset.py) """
 

@@ -3,11 +3,11 @@ import pprint
 import random
 import time
 
-from tests.setup_network import setup_network
-from tests.tx_generator import actions
-from tests.tx_generator.models.accountant import Accountant
-import tests.tx_generator.config as conf
-from tests.tx_generator.models.wallet_api import WalletAPI
+from automesh.setup_network import setup_network
+from tx_generator import actions
+from tx_generator.models.accountant import Accountant
+import tx_generator.config as conf
+from tx_generator.models.wallet_api import WalletAPI
 
 
 def test_transactions(setup_network):

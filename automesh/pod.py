@@ -7,7 +7,7 @@ from urllib3.exceptions import NewConnectionError, MaxRetryError, ConnectTimeout
 from kubernetes import client
 from pytest_testconfig import config as testconfig
 from kubernetes.client.rest import ApiException
-from tests.misc import CoreV1ApiClient
+from automesh.misc import CoreV1ApiClient
 
 
 def wait_for_pod_to_be_ready(pod_name, name_space, time_out=None):
@@ -42,7 +42,7 @@ def wait_to_pod_to_be_deleted(pod_name, name_space, time_out=None):
 
 def create_pod(file_name, name_space, deployment_id=None, container_specs=None):
     timeout = 70
-    with open(path.join(path.dirname(__file__), file_name)) as f:
+    with open(path.join(path.dirname(path.dirname(__file__)), file_name)) as f:
         dep = yaml.safe_load(f)
 
         # Set unique deployment id

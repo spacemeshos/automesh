@@ -8,9 +8,9 @@ from typing import Dict, List
 
 from elasticsearch_dsl import Search, Q
 
-from tests import convenience
-from tests.context import ES
-from tests.convenience import PRINT_SEP
+from automesh import convenience
+from automesh.context import ES
+from automesh.convenience import PRINT_SEP
 
 CREATED_BLOCK_MSG = "block created"
 TS_FORMAT = "%Y-%m-%dT%H:%M:%S.%fZ"

@@ -1,7 +1,7 @@
 import xdrlib
 
-import tests.tx_generator.config as conf
-from tests.ed25519.eddsa import signature2
+import tx_generator.config as conf
+from ed25519.eddsa import signature2
 
 
 ADDRESS_SIZE = 20

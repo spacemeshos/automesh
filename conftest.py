@@ -8,17 +8,17 @@ import random
 import string
 import subprocess
 
-from tests import config as conf
-from tests import pod
-from tests.context import Context, ES
-from tests.convenience import str2bool
-from tests.app_engine.gcloud_tasks.add_task_to_queue import create_google_cloud_task
-from tests.k8s_handler import add_elastic_cluster, add_kibana_cluster, add_fluent_bit_cluster, \
+from automesh import config as conf
+from automesh import pod
+from automesh.context import Context, ES
+from automesh.convenience import str2bool
+from app_engine.gcloud_tasks.add_task_to_queue import create_google_cloud_task
+from automesh.k8s_handler import add_elastic_cluster, add_kibana_cluster, add_fluent_bit_cluster, \
     wait_for_daemonset_to_be_ready
-from tests.misc import CoreV1ApiClient
-from tests.node_pool_deployer import NodePoolDep
-from tests.setup_utils import setup_bootstrap_in_namespace, setup_clients_in_namespace
-from tests.utils import api_call, wait_for_elk_cluster_ready
+from automesh.misc import CoreV1ApiClient
+from automesh.node_pool_deployer import NodePoolDep
+from automesh.setup_utils import setup_bootstrap_in_namespace, setup_clients_in_namespace
+from automesh.utils import api_call, wait_for_elk_cluster_ready
 
 
 def random_id(length):

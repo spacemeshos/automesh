@@ -8,11 +8,11 @@ dir_path = os.getcwd()
 print(f"adding {dir_path} to sys.path")
 sys.path.insert(0, dir_path)
 
-from tests.convenience import str2bool
-from tests.tx_generator import actions
-from tests.tx_generator import config as conf
-from tests.tx_generator.models.wallet_api import WalletAPI
-from tests.tx_generator.models.accountant import Accountant
+from automesh.tests.convenience import str2bool
+from tx_generator import actions
+from tx_generator import config as conf
+from tx_generator.models.wallet_api import WalletAPI
+from tx_generator.models.accountant import Accountant
 
 
 def set_parser():

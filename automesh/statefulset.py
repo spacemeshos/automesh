@@ -5,7 +5,7 @@ from datetime import datetime
 from kubernetes import client
 from kubernetes.client.rest import ApiException
 
-import tests.utils as ut
+import automesh.utils as ut
 
 
 """ k8s deployment api file for stateful deployments (opposite to deployment.py) """

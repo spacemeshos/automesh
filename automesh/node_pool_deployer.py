@@ -1,7 +1,7 @@
 from math import ceil
 import re
 
-import tests.utils as ut
+import automesh.utils as ut
 
 
 class NodePoolDep:

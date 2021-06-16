@@ -3,8 +3,8 @@ import random
 from collections import defaultdict
 from typing import Dict, List
 
-from tests import queries
-from tests.queries import Atx, Block
+from automesh import queries
+from automesh.queries import Atx, Block
 
 
 class EpochSummary(object):

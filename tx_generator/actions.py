@@ -2,10 +2,10 @@ from itertools import cycle, islice
 import multiprocessing as mp
 import random
 
-from tests.convenience import sleep_print_backwards
-from tests.tx_generator import config as conf
-from tests.tx_generator.models.accountant import Accountant
-from tests.tx_generator.models.tx_generator import TxGenerator
+from automesh.convenience import sleep_print_backwards
+from tx_generator import config as conf
+from tx_generator.models.accountant import Accountant
+from tx_generator.models.tx_generator import TxGenerator
 
 
 def transfer(wallet_api, frm, to, amount, gas_price=1, gas_limit=None, curr_nonce=None, accountant=None,

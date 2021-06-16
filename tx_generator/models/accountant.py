@@ -1,7 +1,7 @@
 import random
 
-from tests.ed25519.eddsa import genkeypair
-import tests.tx_generator.config as conf
+from ed25519.eddsa import genkeypair
+import tx_generator.config as conf
 
 
 class Accountant:

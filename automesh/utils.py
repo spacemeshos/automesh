@@ -11,11 +11,11 @@ from shutil import copyfile
 from subprocess import Popen, PIPE
 import time
 
-import tests.config as conf
-import tests.deployment as deployment
-from tests.misc import ContainerSpec, CoreV1ApiClient
-import tests.statefulset as statefulset
-import tests.queries as q
+import automesh.config as conf
+import automesh.deployment as deployment
+from automesh.misc import ContainerSpec, CoreV1ApiClient
+import automesh.statefulset as statefulset
+import automesh.queries as q
 
 ES_SS_NAME = "elasticsearch-master"
 LOGSTASH_SS_NAME = "logstash"
@@ -60,7 +60,7 @@ def get_spec_file_path(file_name):
     main_tests_directory = "tests"
     k8s_dir = "k8s"
 
-    curr_dir = os.path.dirname(os.path.realpath(__file__))
+    curr_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     tests_dir_end_ind = re.search(main_tests_directory, curr_dir).end()
     if not tests_dir_end_ind:
         raise Exception("must be ran from 'tests' dir or any sub directory to tests for yml path resolution")

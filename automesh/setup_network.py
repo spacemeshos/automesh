@@ -3,8 +3,8 @@ import pytest
 from pytest_testconfig import config as testconfig
 import pytz
 
-from tests.conftest import NetworkDeploymentInfo, NetworkInfo
-from tests.utils import wait_genesis, get_genesis_time_delta
+from conftest import NetworkDeploymentInfo, NetworkInfo
+from automesh.utils import wait_genesis, get_genesis_time_delta
 
 
 @pytest.fixture(scope='module')

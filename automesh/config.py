@@ -1,4 +1,4 @@
-import tests.utils as ut
+import automesh.utils as ut
 
 
 BOOT_DEPLOYMENT_FILE = './k8s/bootstrapoet-w-conf.yml'
