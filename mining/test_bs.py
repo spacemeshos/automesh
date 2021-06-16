@@ -2,7 +2,7 @@ from pytest_testconfig import config as testconfig
 
 from automesh import analyse, queries
 from automesh.convenience import sleep_print_backwards
-from hare.assert_hare import validate_hare
+from automesh.asserts import assert_hare
 from automesh.setup_network import setup_network
 from tx_generator import config as tx_gen_conf
 import tx_generator.actions as actions
@@ -85,7 +85,6 @@ def test_transactions(init_session, setup_network):
         ass_err = f"account {acc_pub} did not have the matching nonce"
         assert actions.validate_nonce(wallet_api, acc, acc_pub), ass_err
 
-"""
 def test_mining(init_session, setup_network):
     current_index = get_curr_ind()
     ns = init_session
@@ -107,5 +106,4 @@ def test_mining(init_session, setup_network):
     queries.assert_equal_layer_hashes(current_index, ns)
     queries.assert_equal_state_roots(current_index, ns)
     queries.assert_no_contextually_invalid_atxs(current_index, ns)
-    validate_hare(current_index, ns)  # validate hare
-"""
+    assser_hare(current_index, ns)  # validate hare

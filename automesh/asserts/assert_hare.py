@@ -1,7 +1,7 @@
 # TODO: move to automesh/
 from pytest_testconfig import config as testconfig
 
-from automesh.delayed_assert import expect, assert_expectations
+from automesh.asserts.delayed_assert import expect, assert_expectations
 from automesh.queries import query_hare_output_set, query_round_1, query_round_2, query_round_3, query_pre_round, \
     query_no_svp, query_empty_set, query_new_iteration, query_mem_usage
 
@@ -115,7 +115,7 @@ def expect_hare(curr_idx, ns, min_l, max_l, total, f):
     assert_expectations()
 
 
-def validate_hare(indx, ns):
+def assert_hare(indx, ns):
     lst = query_empty_set(indx, ns)
     expect(0 == len(lst), 'query no empty set')
 
