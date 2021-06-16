@@ -11,11 +11,11 @@ from shutil import copyfile
 from subprocess import Popen, PIPE
 import time
 
-import automesh.config as conf
-import automesh.deployment as deployment
-from automesh.misc import ContainerSpec, CoreV1ApiClient
-import automesh.statefulset as statefulset
-import automesh.queries as q
+import automeshion.config as conf
+import automeshion.deployment as deployment
+from automeshion.misc import ContainerSpec, CoreV1ApiClient
+import automeshion.statefulset as statefulset
+import automeshion.queries as q
 
 ES_SS_NAME = "elasticsearch-master"
 LOGSTASH_SS_NAME = "logstash"

@@ -6,7 +6,7 @@ from pytest_testconfig import config as testconfig
 
 from tests import deployment
 from tests.conftest import DeploymentInfo
-from automesh.asserts import expect_hare, assert_all, get_max_mem_usage
+from automeshion.asserts import expect_hare, assert_all, get_max_mem_usage
 from tests.misc import CoreV1ApiClient
 from tests.setup_utils import setup_bootstrap_in_namespace, setup_clients_in_namespace
 from tests.utils import get_curr_ind, wait_genesis, get_genesis_time_delta

@@ -1,8 +1,8 @@
-# TODO: move to automesh/
+# TODO: move to automeshion/
 from pytest_testconfig import config as testconfig
 
-from automesh.asserts.delayed_assert import expect, assert_expectations
-from automesh.queries import query_hare_output_set, query_round_1, query_round_2, query_round_3, query_pre_round, \
+from automeshion.asserts.delayed_assert import expect, assert_expectations
+from automeshion.queries import query_hare_output_set, query_round_1, query_round_2, query_round_3, query_pre_round, \
     query_no_svp, query_empty_set, query_new_iteration, query_mem_usage
 
 

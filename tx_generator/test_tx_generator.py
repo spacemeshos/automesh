@@ -3,7 +3,7 @@ import pprint
 import random
 import time
 
-from automesh.setup_network import setup_network
+from automeshion.setup_network import setup_network
 from tx_generator import actions
 from tx_generator.models.accountant import Accountant
 import tx_generator.config as conf

@@ -1,9 +1,9 @@
 import time
 
-from automesh import config as conf
-from automesh.pod import search_phrase_in_pod_log
-from automesh.misc import CoreV1ApiClient, ContainerSpec
-from automesh.utils import get_conf, get_genesis_time_delta, choose_k8s_object_create
+from automeshion import config as conf
+from automeshion.pod import search_phrase_in_pod_log
+from automeshion.misc import CoreV1ApiClient, ContainerSpec
+from automeshion.utils import get_conf, get_genesis_time_delta, choose_k8s_object_create
 
 
 def add_multi_clients(testconfig, deployment_id, container_specs, size=2, client_title='client', ret_dep=False):

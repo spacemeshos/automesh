@@ -7,7 +7,7 @@ from urllib3.exceptions import NewConnectionError, MaxRetryError, ConnectTimeout
 from kubernetes import client
 from pytest_testconfig import config as testconfig
 from kubernetes.client.rest import ApiException
-from automesh.misc import CoreV1ApiClient
+from automeshion.misc import CoreV1ApiClient
 
 
 def wait_for_pod_to_be_ready(pod_name, name_space, time_out=None):

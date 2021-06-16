@@ -9,7 +9,7 @@ dir_path = '/'.join(dir_path.split('/')[0:-2])
 print(f"adding {dir_path} to sys.path")
 sys.path.insert(0, dir_path)
 
-from automesh.convenience import sleep_print_backwards, str2bool
+from automeshion.convenience import sleep_print_backwards, str2bool
 from tx_generator import actions
 from tx_generator import config as conf
 from tx_generator import k8s_handler

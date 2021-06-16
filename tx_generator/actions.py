@@ -2,7 +2,7 @@ from itertools import cycle, islice
 import multiprocessing as mp
 import random
 
-from automesh.convenience import sleep_print_backwards
+from automeshion.convenience import sleep_print_backwards
 from tx_generator import config as conf
 from tx_generator.models.accountant import Accountant
 from tx_generator.models.tx_generator import TxGenerator

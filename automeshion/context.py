@@ -3,7 +3,7 @@ from kubernetes import config, client
 import os
 import time
 
-import automesh.config as cnf
+import automeshion.config as cnf
 
 
 ELASTIC_URL_FMT = "http://elastic-{0}.spacemesh.io"

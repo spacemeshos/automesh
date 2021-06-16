@@ -5,8 +5,8 @@ import os
 import time
 import yaml
 
-from automesh import config as conf
-import automesh.utils as ut
+from automeshion import config as conf
+import automeshion.utils as ut
 
 
 def remove_clusterrole_binding(shipper_name, crb_name):

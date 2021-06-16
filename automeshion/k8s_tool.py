@@ -2,7 +2,7 @@ import os
 import time
 import sys
 from kubernetes import config
-from automesh.misc import CoreV1ApiClient
+from automeshion.misc import CoreV1ApiClient
 
 
 def load_config():

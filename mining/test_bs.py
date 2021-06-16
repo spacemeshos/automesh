@@ -1,14 +1,14 @@
 from pytest_testconfig import config as testconfig
 
-from automesh import analyse, queries
-from automesh.convenience import sleep_print_backwards
-from automesh.asserts import assert_hare
-from automesh.setup_network import setup_network
+from automeshion import analyse, queries
+from automeshion.convenience import sleep_print_backwards
+from automeshion.asserts import assert_hare
+from automeshion.setup_network import setup_network
 from tx_generator import config as tx_gen_conf
 import tx_generator.actions as actions
 from tx_generator.models.accountant import Accountant
 from tx_generator.models.wallet_api import WalletAPI
-from automesh.utils import get_curr_ind
+from automeshion.utils import get_curr_ind
 
 
 def test_transactions(init_session, setup_network):

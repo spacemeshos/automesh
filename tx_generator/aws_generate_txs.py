@@ -8,7 +8,7 @@ dir_path = os.getcwd()
 print(f"adding {dir_path} to sys.path")
 sys.path.insert(0, dir_path)
 
-from automesh.tests.convenience import str2bool
+from automeshion.tests.convenience import str2bool
 from tx_generator import actions
 from tx_generator import config as conf
 from tx_generator.models.wallet_api import WalletAPI
