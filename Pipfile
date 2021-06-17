@@ -23,6 +23,7 @@ requests-oauthlib = "==1.2.0"
 toml = "==0.10.0"
 pure25519 = "==0.0.1"
 pyyaml = "==5.4.1"
+pylint = "*"
 
 [requires]
 python_version = "3.8"
