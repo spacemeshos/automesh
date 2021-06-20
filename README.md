@@ -1,9 +1,40 @@
-# Automation Overview:
+# Automesh
+# Automesh 
 
-SM-automation is written in Python 3.7 and uses the [pytest](https://pypi.org/project/pytest/) Python package for running tests on cloud machines that are managed by GKE (Google Kubernetes Engine).
-Each test folder holds a test file (`test_testname.py`) and a `config.yaml` file that contains test configurations, k8s configurations and SM-client arguments.
+automesh is the test automation framework used for spacemesh system test.
+automesh is extending python's builtin `unittest` module adding support for 
+reading configuration file, setting up the test network and tearing it down.
 
-Please note: We currently use logs parsing in order to assert our tests but that will be changed to using the node's API.
+Currently automesh is using Google Kubernetes Engine API so to run it you'll
+need a GCP account and credintials.
+
+## Getting started
+
+automesh is currently tested on python 3.8. To get the code and tun tests :
+
+```console
+$ git clone git@github.com:spacemeshos/automesh
+$ cd automesh
+$ python -m venv env
+$ ./env/bin/activate
+$ pip install pipenv
+$ pipenv install
+```
+
+## Runing Tests
+
+To run a system test we use the builting unittest runner. For example, to run
+mining test:
+
+```console
+$ python -m unittest mining/test_mining.py
+```
+
+## Writing Tests
+
+...
+
+---
 
 #### Packaging
 
