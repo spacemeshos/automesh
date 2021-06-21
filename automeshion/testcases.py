@@ -99,7 +99,6 @@ class TestCase(unittest.TestCase):
         print(f"creating namespace {self.namespace}")
         with open(self.config_path, 'r') as f:
             self.config = yaml.safe_load(f)
-        """
         self.load_k8s_config()
         self.set_namespace()
         self.set_docker_images()
@@ -115,7 +114,6 @@ class TestCase(unittest.TestCase):
         # time.now - time it took pods to come up + delta
         wait_genesis(get_genesis_time_delta(
             self.config['genesis_delta']), self.config['genesis_delta'])
-        """
 
     def set_docker_images(self):
         docker_image = os.getenv('CLIENT_DOCKER_IMAGE', '')
@@ -231,10 +229,12 @@ class TestCase(unittest.TestCase):
         return client_info
 
     def __call__(self, result=None):
-        """
-        Perform the following in order: pre-setup, run test, post-teardown,
-        skipping pre/post hooks if test is set to be skipped.
+        self._setup_call_teardown(result)
 
+    def __call__(self, result=None, debug=False):
+        """
+        Perform the following in order: setup, run test, teardown,
+        skipping pre/post hooks if test is set to be skipped.
         If debug=True, reraise any errors in setup and use super().debug()
         instead of __call__() to run the test.
         """
@@ -253,22 +253,21 @@ class TestCase(unittest.TestCase):
                 result.addError(self, sys.exc_info())
                 return
         super().__call__(result)
+        if not skipped:
+            try:
+                self.teardown(result)
+            except Exception:
+                if debug:
+                    raise
+                result.addError(self, sys.exc_info())
+                return
 
-    def defaultTestResult(self):
-        import pdb; pdb.set_trace()
-        return AMTestResult(self)
-
-class AMTestResult(unittest.TestResult):
-    testcase = None
-
-    def __init__(self, testcase):
-        super(AMTestResult, self).__init__()
-        self.testcase = testcase
-
-    def stopTestRun(self):
+    def teardown(self, result):
         # dump ES content either if tests has failed of whether is_dump param was set to True in the test config file
-        success =  self.wasSuccessful()
-        if not success:
+        if result.wasSuccessful():
+            dump_params = {}
+            print(f"Tearing down {self.namespace} with no dump")
+        else:
             dump_params = {
                 "index_date": self.index_date,
                 "es_ip": ES(self.namespace).get_elastic_ip(),
@@ -278,8 +277,7 @@ class AMTestResult(unittest.TestResult):
                 "dump_queue_name": conf.DUMP_QUEUE_NAME,
                 "dump_queue_zone": conf.DUMP_QUEUE_ZONE,
             }
-        else:
-            dump_params = {}
+            print(f"Tearing down {self.namespace} with dump: {dump_params}")
 
         queue_params = {
                 "project_id": conf.PROJECT_ID,
@@ -289,7 +287,7 @@ class AMTestResult(unittest.TestResult):
         payload = {
             "namespace": self.namespace,
             "is_delns": True, # str2bool(request.config.getoption("--delns")),
-            "is_dump": not success,
+            "is_dump": dump_params != {},
             "project_id": conf.PROJECT_ID,
             "pool_name": f"pool-{self.namespace}",
             "cluster_name": conf.CLUSTER_NAME,

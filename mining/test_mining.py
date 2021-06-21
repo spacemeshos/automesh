@@ -29,7 +29,6 @@ class TestMininng(TestCase):
         tts = layer_duration * tx_gen_conf.num_layers_until_process
         sleep_print_backwards(tts)
 
-        """
         wallet_api = WalletAPI(self.namespace, self.network.clients.pods)
 
         tap_bal = wallet_api.get_balance_value(tx_gen_conf.acc_pub)
@@ -87,7 +86,6 @@ class TestMininng(TestCase):
         for acc_pub in acc.accounts:
             ass_err = f"account {acc_pub} did not have the matching nonce"
             assert actions.validate_nonce(wallet_api, acc, acc_pub), ass_err
-        """
 
     """
     def test_mining(self):
