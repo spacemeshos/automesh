@@ -1,12 +1,8 @@
-# Automesh
 # Automesh 
 
-automesh is the test automation framework used for spacemesh system test.
+automesh is the test automation framework used for spacemesh system tests.
 automesh is extending python's builtin `unittest` module adding support for 
 reading configuration file, setting up the test network and tearing it down.
-
-Currently automesh is using Google Kubernetes Engine API so to run it you'll
-need a GCP account and credintials.
 
 ## Getting started
 
@@ -23,8 +19,29 @@ $ pipenv install
 
 ## Runing Tests
 
-To run a system test we use the builting unittest runner. For example, to run
-mining test:
+Currently automesh is using Google Kubernetes Engine API and it requires a
+a GCP account credintials and some additional enviornment variables.
+Here's are the required env vars:
+
+- DOCKER_USERNAME=""
+- DOCKER_PASSWORD=""
+- GCLOUD_KEY=$(cat ~/gcp_private.json | base64)
+- PROJECT_NAME="spacemesh-973462"
+- CLUSTER_NAME_ELK="spacemesh-cluster-elk"
+- CLUSTER_NAME="spacemesh-lab1"
+- CLUSTER_ZONE="us-east1-b"
+- CLUSTER_ZONE_ELK="us-west1-a"
+- ES_PASSWD="..."
+- ES_USER="..."
+- ES_PASS="..."
+- MAIN_ES_IP="...."
+- TD_QUEUE_NAME="sm-teardown"
+- TD_QUEUE_ZONE="us-east1"
+- DUMP_QUEUE_NAME="sm-dump-queue"
+- DUMP_QUEUE_ZONE="east1".
+
+After setting the env you can run a system test using the builting unittest
+runner. For example, to run the mining test:
 
 ```console
 $ python -m unittest mining/test_mining.py
